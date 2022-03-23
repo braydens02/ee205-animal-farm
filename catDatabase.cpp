@@ -14,7 +14,7 @@ unsigned long NUM_CATS = 0;
 
 struct Cats catDatabase[MAX_CATS];
 
-char* getGender(enum Gender gender) {
+const char* getGender(enum Gender gender) {
     switch(gender) {
         case 0:
             return "UNKOWN_GENDER" ;
@@ -26,7 +26,7 @@ char* getGender(enum Gender gender) {
     return "UNKOWN_GENDER" ;
 }
 
-char* getBreed(enum Breed breed) {
+const char* getBreed(enum Breed breed) {
     switch(breed) {
         case 0:
             return "UNKNOWN_BREED" ;
@@ -44,7 +44,7 @@ char* getBreed(enum Breed breed) {
     return "UNKNOWN_BREED" ;
 }
 
-char* getCollarColor(enum Color color) {
+const char* getCollarColor(enum Color color) {
     switch(color) {
         case 0:
             return "UNKNOWN_COLOR" ;

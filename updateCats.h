@@ -13,7 +13,7 @@
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_UPDATECATS_H
 
-extern void updateCatName(unsigned long catIndex, char new_name[]);
+extern void updateCatName(unsigned long catIndex, const char new_name[]);
 extern void fixCat(unsigned long catIndex);
 extern void updateCatWeight(unsigned long catIndex, float new_weight);
 extern void updateCatCollar1(unsigned long catIndex, enum Color newCollarColor1 );

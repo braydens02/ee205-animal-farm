@@ -15,7 +15,7 @@
 #include "catDatabase.h"
 #include "config.h"
 
-void updateCatName(unsigned long catIndex, char new_name[]) {
+void updateCatName(unsigned long catIndex, const char new_name[]) {
 
     char old_name[MAX_CAT_NAMES];
 
@@ -71,14 +71,14 @@ void updateCatWeight(unsigned long catIndex, float new_weight) {
 }
 
 void updateCatCollar1(unsigned long catIndex, enum Color newCollarColor1) {
-    int oldCollarColor1 ;
+    enum Color oldCollarColor1 ;
     oldCollarColor1 = catDatabase[catIndex].collarColor1 ;
     catDatabase[catIndex].collarColor1 = newCollarColor1 ;
     printf("cat index: [%lu] name: [%s] previous collarColor: [%s] new collarColor: [%s]\n", catIndex, catDatabase[catIndex].name, getCollarColor(oldCollarColor1), getCollarColor(newCollarColor1) ) ;
 }
 
 void updateCatCollar2(unsigned long catIndex, enum Color newCollarColor2) {
-    int oldCollarColor2 ;
+    enum Color oldCollarColor2 ;
     oldCollarColor2 = catDatabase[catIndex].collarColor2 ;
     catDatabase[catIndex].collarColor2 = newCollarColor2 ;
     printf("cat index: [%lu] name: [%s] previous collarColor: [%s] new collarColor: [%s]\n", catIndex, catDatabase[catIndex].name, getCollarColor(oldCollarColor2), getCollarColor(newCollarColor2) ) ;

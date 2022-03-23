@@ -15,4 +15,4 @@
 
 #include <stdbool.h>
 
-extern int addCat(char name[], enum Gender gender, enum Breed breed, bool isfixed, float weight, enum Color collarColor1, enum Color collarColor2, unsigned long long license ) ;
+extern int addCat(const char name[], enum Gender gender, enum Breed breed, bool isfixed, float weight, enum Color collarColor1, enum Color collarColor2, unsigned long long license ) ;

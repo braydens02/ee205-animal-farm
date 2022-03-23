@@ -15,4 +15,4 @@
 
 extern void printCat(unsigned long index);
 extern void printAllCats();
-extern int findCat(char name[]);
+extern int findCat(const char name[]);

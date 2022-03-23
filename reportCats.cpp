@@ -30,7 +30,7 @@ void printAllCats() {
     }
 }
 
-int findCat(char name[]) {
+int findCat(const char name[]) {
     int compare;
     for (int i = 0; i < MAX_CATS; i++) {
         compare = strcmp(catDatabase[i].name, name) ;

@@ -46,6 +46,6 @@ struct Cats{
 
 extern unsigned long NUM_CATS ;
 extern struct Cats catDatabase[MAX_CATS] ;
-extern char* getGender(enum Gender gender) ;
-extern char* getBreed(enum Breed breed) ;
-extern char* getCollarColor(enum Color color) ;
+extern const char* getGender(enum Gender gender) ;
+extern const char* getBreed(enum Breed breed) ;
+extern const char* getCollarColor(enum Color color) ;
