@@ -44,6 +44,8 @@ struct Cats{
     unsigned long long license ;
 };
 
+typedef float Weight;
+
 extern unsigned long NUM_CATS ;
 extern struct Cats catDatabase[MAX_CATS] ;
 extern const char* getGender(enum Gender gender) ;

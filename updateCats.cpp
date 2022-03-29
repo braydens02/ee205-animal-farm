@@ -58,7 +58,7 @@ void fixCat(unsigned long catIndex) {
     }
 }
 
-void updateCatWeight(unsigned long catIndex, float new_weight) {
+void updateCatWeight(unsigned long catIndex, Weight new_weight) {
     float old_weight;
     if (new_weight <= 0) {
         fprintf( stderr, "%s: Weight must be greater than 0.\n", PROGRAM_NAME ) ;

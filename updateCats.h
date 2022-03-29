@@ -15,7 +15,7 @@
 
 extern void updateCatName(unsigned long catIndex, const char new_name[]);
 extern void fixCat(unsigned long catIndex);
-extern void updateCatWeight(unsigned long catIndex, float new_weight);
+extern void updateCatWeight(unsigned long catIndex, Weight new_weight);
 extern void updateCatCollar1(unsigned long catIndex, enum Color newCollarColor1 );
 extern void updateCatCollar2(unsigned long catIndex, enum Color newCollarColor2 );
 extern void updateLicense(unsigned long catIndex, unsigned long long newLicense );
