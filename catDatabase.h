@@ -45,8 +45,9 @@ struct Cats{
 };
 
 typedef float Weight;
+typedef unsigned long NumCats;
 
-extern unsigned long NUM_CATS ;
+extern NumCats NUM_CATS ;
 extern struct Cats catDatabase[MAX_CATS] ;
 extern const char* getGender(enum Gender gender) ;
 extern const char* getBreed(enum Breed breed) ;

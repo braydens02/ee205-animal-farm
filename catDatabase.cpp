@@ -10,7 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "catDatabase.h"
 
-unsigned long NUM_CATS = 0;
+NumCats NUM_CATS = 0;
 
 struct Cats catDatabase[MAX_CATS];
 
@@ -23,7 +23,7 @@ const char* getGender(enum Gender gender) {
         case 2:
             return "FEMALE" ;
     }
-    return "UNKOWN_GENDER" ;
+    return "UNKNOWN_GENDER" ;
 }
 
 const char* getBreed(enum Breed breed) {
