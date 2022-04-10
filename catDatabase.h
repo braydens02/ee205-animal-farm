@@ -13,10 +13,9 @@
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_CATDATABASE_H
 
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #define MAX_CATS (1024)
 #define MAX_CAT_NAMES (50)
@@ -26,6 +25,7 @@ enum Gender {UNKNOWN_GENDER, MALE, FEMALE} ;
 enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX} ;
 
 enum Color {UNKNOWN_COLOR, BLACK, WHITE, RED, YELLOW, ORANGE, GREEN, BLUE, PURPLE, PINK} ;
+
 struct Cats{
     char name[MAX_CATS] ;
 
@@ -33,7 +33,7 @@ struct Cats{
 
     enum Breed breed ;
 
-    bool isfixed ;
+    bool isFixed ;
 
     float weight ;
 

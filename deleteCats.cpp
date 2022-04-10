@@ -8,8 +8,6 @@
 /// @author Brayden Suzuki <braydens@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include <stdio.h>
-#include <stdlib.h>
 #include "catDatabase.h"
 
 void deleteAllCats() {
@@ -19,7 +17,7 @@ void deleteAllCats() {
         }
         catDatabase[i].gender = UNKNOWN_GENDER;
         catDatabase[i].breed = UNKNOWN_BREED;
-        catDatabase[i].isfixed = 0;
+        catDatabase[i].isFixed = 0;
         catDatabase[i].weight = 0;
         catDatabase[i].collarColor1 = UNKNOWN_COLOR;
         catDatabase[i].collarColor2 = UNKNOWN_COLOR;
@@ -33,7 +31,7 @@ void deleteCat(unsigned long index) {
     }
     catDatabase[index].gender = UNKNOWN_GENDER;
     catDatabase[index].breed = UNKNOWN_BREED;
-    catDatabase[index].isfixed = 0;
+    catDatabase[index].isFixed = 0;
     catDatabase[index].weight = 0;
     catDatabase[index].collarColor1 = UNKNOWN_COLOR;
     catDatabase[index].collarColor2 = UNKNOWN_COLOR;

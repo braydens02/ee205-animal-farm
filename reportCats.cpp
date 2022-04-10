@@ -8,25 +8,25 @@
 /// @author Brayden Suzuki <braydens@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
 #include "catDatabase.h"
 #include "config.h"
+using namespace std;
 
 void printCat(unsigned long catIndex) {
     if (catIndex > (NUM_CATS - 1)) {
-        fprintf( stderr, "%s: Bad cat [%lu]\n", PROGRAM_NAME, catIndex );
+        cerr << PROGRAM_NAME << ": Bad cat " << catIndex << endl;
     }
     else {
-        printf("cat index = [%lu] name=[%s] gender=[%s] breed=[%s] isFixed=[%d] weight=[%f] collarColor1=[%s] collarColor2=[%s] license=[%llu]\n", catIndex, catDatabase[catIndex].name, getGender(catDatabase[catIndex].gender), getBreed(catDatabase[catIndex].breed), catDatabase[catIndex].isfixed, catDatabase[catIndex].weight, getCollarColor(catDatabase[catIndex].collarColor1), getCollarColor(catDatabase[catIndex].collarColor2), catDatabase[catIndex].license );
+        cout << "cat index=" << catIndex << " name=" << catDatabase[catIndex].name << " gender=" << getGender(catDatabase[catIndex].gender) << " breed=" << getBreed(catDatabase[catIndex].breed) << " isFixed=" << catDatabase[catIndex].isFixed << " weight=" << catDatabase[catIndex].weight << " collarColor1=" << getCollarColor(catDatabase[catIndex].collarColor1) << " collarColor2=" << getCollarColor(catDatabase[catIndex].collarColor2) << " license=" << catDatabase[catIndex].license << endl;
     }
 }
 
 void printAllCats() {
     for (unsigned long k = 0; k < NUM_CATS; k++) {
-        printf("cat index = [%lu] name=[%s] gender=[%s] breed=[%s] isFixed=[%d] weight=[%f] collarColor1=[%s] collarColor2=[%s] license=[%llu]\n", k, catDatabase[k].name, getGender(catDatabase[k].gender), getBreed(catDatabase[k].breed), catDatabase[k].isfixed, catDatabase[k].weight, getCollarColor(catDatabase[k].collarColor1), getCollarColor(catDatabase[k].collarColor2), catDatabase[k].license );
+        cout << "cat index=" << k << " name=" << catDatabase[k].name << " gender=" << getGender(catDatabase[k].gender) << " breed=" << getBreed(catDatabase[k].breed) << " isFixed=" << catDatabase[k].isFixed << " weight=" << catDatabase[k].weight << " collarColor1=" << getCollarColor(catDatabase[k].collarColor1) << " collarColor2=" << getCollarColor(catDatabase[k].collarColor2) << " license=" << catDatabase[k].license << endl;
     }
 }
 

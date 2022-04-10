@@ -8,34 +8,21 @@
 /// @author Brayden Suzuki <braydens@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#include <cstring>
+#include <iostream>
 #include "catDatabase.h"
 #include "config.h"
+using namespace std;
 
 void updateCatName(unsigned long catIndex, const char new_name[]) {
 
     char old_name[MAX_CAT_NAMES];
 
-    int result;
-
-    for (int i = 0; i < MAX_CATS; i++) {
-        result = strcmp(catDatabase[i].name, new_name);
-        if (result == 0) {
-            break;
-        }
-    }
-
     if (strlen(new_name) <= 0) {
-        fprintf( stderr, "%s: Cat's name cannot be empty.\n", PROGRAM_NAME ) ;
+        cerr << PROGRAM_NAME << ": Cat's name cannot be empty." << endl;
     }
     if (strlen(new_name) > MAX_CAT_NAMES) {
-        fprintf( stderr, "%s: Cat's name cannot be greater than 30 characters.\n", PROGRAM_NAME ) ;
-    }
-    if (result == 0) {
-        fprintf( stderr, "%s: Name must be unique.\n", PROGRAM_NAME ) ;
+        cerr << PROGRAM_NAME << ": Cat's name cannot be greater than 30 characters." << endl;
     }
     else {
         for (int l = 0; l < MAX_CAT_NAMES; l++) {
@@ -44,29 +31,29 @@ void updateCatName(unsigned long catIndex, const char new_name[]) {
         for (int m = 0; m < MAX_CAT_NAMES; m++) {
             catDatabase[catIndex].name[m] = new_name[m];
         }
-        printf("cat index = [%lu] previous name = [%s] new name = [%s]\n", catIndex, old_name, catDatabase[catIndex].name);
+        cout << "cat index:" << catIndex << " previous name:" << old_name << " new name:" << catDatabase[catIndex].name << endl;
     }
 }
 
 void fixCat(unsigned long catIndex) {
-    if (catDatabase[catIndex].isfixed == 1) {
-        fprintf( stderr, "%s: Cat is already fixed.\n", PROGRAM_NAME ) ;
+    if (catDatabase[catIndex].isFixed == 1) {
+        cerr << PROGRAM_NAME << ": Cat is already fixed." << endl;
     }
     else {
-        catDatabase[catIndex].isfixed = 1;
-        printf("%s is now fixed.\n", catDatabase[catIndex].name);
+        catDatabase[catIndex].isFixed = 1;
+        cout << catDatabase[catIndex].name << " is now fixed." << endl;
     }
 }
 
 void updateCatWeight(unsigned long catIndex, Weight new_weight) {
     float old_weight;
     if (new_weight <= 0) {
-        fprintf( stderr, "%s: Weight must be greater than 0.\n", PROGRAM_NAME ) ;
+        cerr << PROGRAM_NAME << ": Weight must be greater than 0." << endl;
     }
     else {
         old_weight = catDatabase[catIndex].weight;
         catDatabase[catIndex].weight = new_weight;
-        printf("cat index: [%lu] name: [%s] previous weight: [%f] new weight: [%f]\n", catIndex, catDatabase[catIndex].name, old_weight, new_weight);
+        cout << "cat index:" << catIndex << " name:" << catDatabase[catIndex].name << " previous weight:" << old_weight << " new weight:" << new_weight << endl;
     }
 }
 
@@ -74,19 +61,19 @@ void updateCatCollar1(unsigned long catIndex, enum Color newCollarColor1) {
     enum Color oldCollarColor1 ;
     oldCollarColor1 = catDatabase[catIndex].collarColor1 ;
     catDatabase[catIndex].collarColor1 = newCollarColor1 ;
-    printf("cat index: [%lu] name: [%s] previous collarColor: [%s] new collarColor: [%s]\n", catIndex, catDatabase[catIndex].name, getCollarColor(oldCollarColor1), getCollarColor(newCollarColor1) ) ;
+    cout << "cat index:" << catIndex << " name:" << catDatabase[catIndex].name << " previous collarColor:" << getCollarColor(oldCollarColor1) << " new collarColor:" << getCollarColor(newCollarColor1) << endl;
 }
 
 void updateCatCollar2(unsigned long catIndex, enum Color newCollarColor2) {
     enum Color oldCollarColor2 ;
     oldCollarColor2 = catDatabase[catIndex].collarColor2 ;
     catDatabase[catIndex].collarColor2 = newCollarColor2 ;
-    printf("cat index: [%lu] name: [%s] previous collarColor: [%s] new collarColor: [%s]\n", catIndex, catDatabase[catIndex].name, getCollarColor(oldCollarColor2), getCollarColor(newCollarColor2) ) ;
+    cout << "cat index:" << catIndex << " name:" << catDatabase[catIndex].name << " previous collarColor:" << getCollarColor(oldCollarColor2) << " new collarColor:" << getCollarColor(newCollarColor2) << endl;
 }
 
 void updateLicense(unsigned long catIndex, unsigned long long newLicense) {
     unsigned long long oldLicense ;
     oldLicense = catDatabase[catIndex].license ;
     catDatabase[catIndex].license = newLicense ;
-    printf("cat index: [%lu] name: [%s] previous license: [%llu] new license: [%llu]\n", catIndex, catDatabase[catIndex].name, oldLicense, newLicense) ;
+    cout << "cat index:" << catIndex << " name:" << catDatabase[catIndex].name << " previous license:" << oldLicense << " new license:" << newLicense << endl;
 }

@@ -9,6 +9,8 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "catDatabase.h"
+#include "cstring"
+using namespace std;
 
 NumCats NUM_CATS = 0;
 
@@ -17,7 +19,7 @@ struct Cats catDatabase[MAX_CATS];
 const char* getGender(enum Gender gender) {
     switch(gender) {
         case 0:
-            return "UNKOWN_GENDER" ;
+            return "UNKNOWN_GENDER" ;
         case 1:
             return "MALE" ;
         case 2:
