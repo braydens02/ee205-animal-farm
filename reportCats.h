@@ -13,6 +13,8 @@
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_REPORTCATS_H
 
+/*
 extern void printCat(unsigned long index);
 extern void printAllCats();
 extern int findCat(const char name[]);
+ */

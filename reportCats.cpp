@@ -15,6 +15,7 @@
 #include "config.h"
 using namespace std;
 
+/*
 void printCat(unsigned long catIndex) {
     if (catIndex > (NUM_CATS - 1)) {
         cerr << PROGRAM_NAME << ": Bad cat " << catIndex << endl;
@@ -48,3 +49,4 @@ int findCat(const char name[]) {
         return 0;
     }
 }
+*/

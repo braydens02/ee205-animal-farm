@@ -13,4 +13,7 @@
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_CONFIG_H
 
-#define PROGRAM_NAME "Animal Farm"
+#define PROGRAM_NAME "Animal Farm 2"
+
+typedef float Weight ;
+typedef unsigned long NumCats ;

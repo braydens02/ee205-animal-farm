@@ -20,6 +20,8 @@
 #include "deleteCats.h"
 
 int main() {
+
+    /*
     addCat( "Loki", MALE, PERSIAN, true, 8.5, BLACK, WHITE, 101 ) ;
     addCat( "Milo", MALE, MANX, true, 7.0, BLACK, RED, 102 ) ;
     addCat( "Bella", FEMALE, MAINE_COON, true, 18.2, BLACK, BLUE, 103 ) ;
@@ -46,4 +48,5 @@ int main() {
     updateCatCollar2( bella, WHITE ) ;
     updateLicense( bella, 111 ) ;
     printAllCats() ;
+     */
 }

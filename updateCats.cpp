@@ -14,6 +14,7 @@
 #include "config.h"
 using namespace std;
 
+/*
 void updateCatName(unsigned long catIndex, const char new_name[]) {
 
     char old_name[MAX_CAT_NAMES];
@@ -77,3 +78,4 @@ void updateLicense(unsigned long catIndex, unsigned long long newLicense) {
     catDatabase[catIndex].license = newLicense ;
     cout << "cat index:" << catIndex << " name:" << catDatabase[catIndex].name << " previous license:" << oldLicense << " new license:" << newLicense << endl;
 }
+ */

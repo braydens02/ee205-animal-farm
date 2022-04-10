@@ -9,14 +9,14 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "catDatabase.h"
-#include "cstring"
+
 using namespace std;
 
-NumCats NUM_CATS = 0;
+NumCats NUM_CATS = 0 ;
 
-struct Cats catDatabase[MAX_CATS];
+Cat* catDatabaseHeadPointer = nullptr ;
 
-const char* getGender(enum Gender gender) {
+const char* genderName(enum Gender gender) {
     switch(gender) {
         case 0:
             return "UNKNOWN_GENDER" ;
@@ -28,7 +28,7 @@ const char* getGender(enum Gender gender) {
     return "UNKNOWN_GENDER" ;
 }
 
-const char* getBreed(enum Breed breed) {
+const char* breedName(enum Breed breed) {
     switch(breed) {
         case 0:
             return "UNKNOWN_BREED" ;
@@ -46,7 +46,7 @@ const char* getBreed(enum Breed breed) {
     return "UNKNOWN_BREED" ;
 }
 
-const char* getCollarColor(enum Color color) {
+const char* colorName(enum Color color) {
     switch(color) {
         case 0:
             return "UNKNOWN_COLOR" ;
@@ -70,4 +70,14 @@ const char* getCollarColor(enum Color color) {
             return "PINK" ;
     }
     return "UNKNOWN_COLOR" ;
+}
+
+bool validateDatabase() {
+    for (Cat *iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
+        if (!iCat->validate()) {
+            return false;
+        }
+    }
+
+    return true;
 }

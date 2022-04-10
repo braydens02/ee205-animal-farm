@@ -9,16 +9,21 @@
 /// @date   08_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
+#include "catDatabase.h"
 #include <cstring>
 #include <stdexcept>
+#include <iostream>
+#include <cassert>
+#include <iomanip>
 using namespace std;
 
 void Cat::setMemberData() {
     memset( name, 0, MAX_CAT_NAMES );
     gender = UNKNOWN_GENDER;
     breed = UNKNOWN_BREED;
-    isFixed = false;
+    isCatFixed = false;
     weight = -1;
+    next = nullptr ;
 }
 
 Cat::Cat() {
@@ -30,6 +35,24 @@ Cat::Cat(const char* newName, const Gender newGender, const Breed newBreed, cons
     setGender( newGender ) ;
     setBreed( newBreed ) ;
     setWeight( newWeight ) ;
+}
+
+#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
+
+bool Cat::print() const noexcept {
+    assert( validate() ) ;
+
+    cout << setw(80) << setfill( '=' ) << "" << endl ;
+    cout << setfill( ' ') ;
+    cout << left ;
+    cout << boolalpha ;
+    FORMAT_LINE( "Cat", "name" ) << getName() << endl ;
+    FORMAT_LINE( "Cat", "gender" ) << genderName( getGender() ) << endl ;
+    FORMAT_LINE( "Cat", "breed" ) << breedName( getBreed() ) << endl ;
+    FORMAT_LINE( "Cat", "isFixed" ) << isFixed() << endl ;
+    FORMAT_LINE( "Cat", "weight" ) << getWeight() << endl ;
+
+    return true ;
 }
 
 void Cat::setName( const char* newName ) {
@@ -56,28 +79,28 @@ void Cat::setBreed( const Breed newBreed ) {
     Cat::breed = newBreed ;
 }
 
+void Cat::fixCat() noexcept {
+    Cat::isCatFixed = true ;
+}
+
 void Cat::setWeight( const Weight newWeight ) {
     validateWeight( newWeight );
 
     Cat::weight = newWeight ;
 }
 
-bool Cat::validate() {
-    if (!validateName( name ) ) {
+bool Cat::validate() const noexcept {
+    try {
+        validateName( name ) ;
+        validateGender( gender ) ;
+        validateBreed( breed ) ;
+        validateWeight( weight ) ;
+    } catch (exception const& e) {
+        cout << e.what() << endl ;
         return false ;
     }
-    if (!validateGender( gender ) ) {
-        return false ;
-    }
-    if (!validateBreed( breed ) ) {
-        return false ;
-    }
-    if (!validateWeight( weight ) ) {
-        return false ;
-    }
-    else {
-        return true ;
-    }
+
+    return true ;
 }
 
 bool Cat::validateName( const char* newName ) {
@@ -106,4 +129,24 @@ bool Cat::validateWeight( const Weight newWeight ) {
     if (newWeight <= 0) throw length_error( PROGRAM_NAME ": weight must be greater than 0") ;
 
     return true ;
+}
+
+const char *Cat::getName() const noexcept {
+    return name ;
+}
+
+Gender Cat::getGender() const noexcept {
+    return gender ;
+}
+
+Breed Cat::getBreed() const noexcept {
+    return breed ;
+}
+
+bool Cat::isFixed() const noexcept {
+    return isCatFixed ;
+}
+
+Weight Cat::getWeight() const noexcept {
+    return weight ;
 }
