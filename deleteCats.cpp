@@ -8,8 +8,51 @@
 /// @author Brayden Suzuki <braydens@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include "catDatabase.h"
+#include "deleteCats.h"
+#include <cassert>
 
+bool deleteCat(Cat* aCat) {
+    assert( aCat != nullptr ) ;
+
+    assert( validateDatabase() ) ;
+
+    if( aCat == catDatabaseHeadPointer ) {
+        catDatabaseHeadPointer = catDatabaseHeadPointer -> next ;
+        delete aCat ;
+        NUM_CATS-- ;
+        assert( validateDatabase() ) ;
+        return true ;
+    }
+
+    Cat* iCat = catDatabaseHeadPointer ;
+    while( iCat != nullptr ) {
+        if( iCat -> next == aCat ) {
+            iCat -> next = aCat -> next ;
+            delete aCat ;
+            NUM_CATS-- ;
+            assert( validateDatabase() ) ;
+            return true ;
+        }
+        iCat = iCat -> next ;
+    }
+
+    assert( validateDatabase() ) ;
+
+    return false ;
+}
+
+bool deleteAllCats() {
+    while( catDatabaseHeadPointer != nullptr ) {
+        deleteCat( catDatabaseHeadPointer ) ;
+        assert( validateDatabase() ) ;
+    }
+
+    NUM_CATS = 0 ;
+
+    return true ;
+}
+
+/*
 void deleteAllCats() {
     for (int i = 0; i < MAX_CATS; i++) {
         for (int j = 0; j < MAX_CAT_NAMES; j++) {
@@ -37,3 +80,4 @@ void deleteCat(unsigned long index) {
     catDatabase[index].collarColor2 = UNKNOWN_COLOR;
     catDatabase[index].license = 0;
 }
+*/

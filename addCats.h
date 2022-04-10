@@ -13,6 +13,8 @@
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_ADDCATS_H
 
-#include <stdbool.h>
+#include "config.h"
+#include "Cat.h"
+#include "catDatabase.h"
 
-extern int addCat(const char name[], enum Gender gender, enum Breed breed, bool isfixed, Weight weight, enum Color collarColor1, enum Color collarColor2, unsigned long long license ) ;
+extern bool addCat( Cat* newCat ) ;
