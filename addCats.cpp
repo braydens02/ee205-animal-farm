@@ -26,7 +26,5 @@ bool addCat(Cat* newCat) {
 
     assert( validateDatabase() ) ;
 
-    cout << PROGRAM_NAME << ": Added cat [" << newCat -> getName() << "]" << endl ;
-
     return true ;
 }

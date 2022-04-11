@@ -25,7 +25,7 @@ enum Color {UNKNOWN_COLOR, BLACK, WHITE, RED, YELLOW, ORANGE, GREEN, BLUE, PURPL
 class Cat {
 public:
     Cat() ;
-    Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight);
+    Cat(const char *newName, Gender newGender, Breed newBreed, Weight newWeight) ;
     Cat* next ;
     bool print() const noexcept ;
     bool validate() const noexcept ;

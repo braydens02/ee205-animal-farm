@@ -8,12 +8,34 @@
 /// @author Brayden Suzuki <braydens@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include <cstdio>
 #include <cstring>
-#include <iostream>
 #include "catDatabase.h"
 #include "config.h"
+#include <cassert>
 using namespace std;
+
+bool printAllCats() {
+    int numCats = 0 ;
+
+    assert( validateDatabase() ) ;
+
+    for (Cat *iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
+        iCat -> print() ;
+        numCats++ ;
+    }
+
+    return true ;
+}
+
+Cat* findCatbyName( const char* name ) {
+    for (Cat *iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
+        if( strcmp( name, iCat -> getName() ) == 0 ) {
+            return iCat ;
+        }
+    }
+
+    return nullptr ;
+}
 
 /*
 void printCat(unsigned long catIndex) {

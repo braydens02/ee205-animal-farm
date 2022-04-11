@@ -9,6 +9,7 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "deleteCats.h"
+#include "catDatabase.h"
 #include <cassert>
 
 bool deleteCat(Cat* aCat) {

@@ -9,44 +9,129 @@
 ///////// @author Brayden Suzuki <braydens@hawaii.edu>
 ///////// @date 21_Feb_2022
 ///////////////////////////////////////////////////////////////////////////////////
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-#include "catDatabase.h"
+#include <cstring>
+#include <iostream>
+#include <cassert>
 #include "addCats.h"
 #include "reportCats.h"
-#include "updateCats.h"
 #include "deleteCats.h"
+#include "Cat.h"
+using namespace std ;
 
 int main() {
 
-    /*
-    addCat( "Loki", MALE, PERSIAN, true, 8.5, BLACK, WHITE, 101 ) ;
-    addCat( "Milo", MALE, MANX, true, 7.0, BLACK, RED, 102 ) ;
-    addCat( "Bella", FEMALE, MAINE_COON, true, 18.2, BLACK, BLUE, 103 ) ;
-    addCat( "Kali", FEMALE, SHORTHAIR, false, 9.2, BLACK, GREEN, 104 ) ;
-    addCat( "Trin", FEMALE, MANX, true, 12.2, BLACK, PINK, 105 ) ;
-    addCat( "Chili", UNKNOWN_GENDER, SHORTHAIR, false, 19.0, WHITE, BLACK, 106 ) ;
-    printAllCats();
+#ifdef NULL
+    Cat testCat = Cat() ;
+    assert( testCat.getName() != nullptr ) ;
+    assert( strcmp(testCat.getName(), "") == 0 ) ;
+    assert( testCat.getGender() == UNKNOWN_GENDER ) ;
+    assert( testCat.getBreed() == UNKNOWN_BREED ) ;
+    assert( testCat.getWeight() == -1 ) ;
+    assert( testCat.isFixed() == false ) ;
+    assert( !testCat.validate() ) ;
 
-    int kali = findCat( "Kali" ) ;
-    int bella = findCat( "Bella" ) ;
-    updateCatName( kali, "Chili" ) ; // this should fail
-    printCat( kali );
-    updateCatName( kali, "Capulet" ) ;
-    updateCatWeight( kali, 9.9 ) ;
-    fixCat( kali ) ;
-    printCat( kali );
+    try {
+        testCat.setName(nullptr ) ;
+        assert( false ) ;
+    }
+ catch ( exception const &e) {}
 
-    printAllCats();
+    try {
+        testCat.setName( "" ) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
 
-    deleteCat(3);
-    printAllCats();
+    testCat.setName( "1" ) ;
 
-    updateCatCollar1( bella, BLUE ) ;
-    updateCatCollar2( bella, WHITE ) ;
-    updateLicense( bella, 111 ) ;
+#define MAX_CAT_NAMES1 "01234567890123456789012345678901234456789123456789"
+#define ILLEGAL_NAME "012345678901234567890123456789012344567891234567890"
+
+    testCat.setName( MAX_CAT_NAMES1 ) ;
+
+    try {
+        testCat.setName( ILLEGAL_NAME ) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
+
+    testCat.setGender( MALE ) ;
+
+    try {
+        testCat.setGender( FEMALE ) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
+
+    testCat.setBreed( MAINE_COON ) ;
+
+    try {
+        testCat.setBreed( SPHYNX ) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
+
+    testCat.isFixed() ;
+    testCat.fixCat() ;
+    testCat.isFixed() ;
+
+    try {
+        testCat.setWeight( 0 ) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
+
+    testCat.setWeight( 1.0/1024 ) ;
+
+    assert( testCat.validate() ) ;
+
+    try {
+        addCat( new Cat( "Illegal", UNKNOWN_GENDER, PERSIAN, 1.0 )) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
+
+    try {
+        addCat( new Cat( "Illegal", MALE, UNKNOWN_BREED, 1.0 )) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
+
+    try {
+        addCat( new Cat( "Illegal", MALE, PERSIAN, -1 )) ;
+        assert( false ) ;
+    }
+    catch ( exception const &e) {}
+
+    addCat(new Cat("Bella", FEMALE, MAINE_COON, 1.2));
+
+    Cat *Bella = findCatbyName( "Bella" ) ;
+
+    assert( Bella != nullptr ) ;
+
+    Cat *Belinda = findCatbyName( "Belinda" ) ;
+
+    assert( Belinda == nullptr ) ;
+
+    assert( deleteCat( Bella )) ;
+
+#endif
+
+    cout << "Starting Animal Farm 2" << endl;
+
+    addCat(new Cat("Loki", MALE, PERSIAN, 1.0));
+    addCat(new Cat("Milo", MALE, MANX, 1.1));
+    addCat(new Cat("Bella", FEMALE, MAINE_COON, 1.2));
+    addCat(new Cat("Kali", FEMALE, SHORTHAIR, 1.3));
+    addCat(new Cat("Trin", FEMALE, MANX, 1.4));
+    addCat(new Cat("Chili", MALE, SHORTHAIR, 1.5));
+
     printAllCats() ;
-     */
+
+    deleteAllCats() ;
+
+    printAllCats() ;
+
+    cout << "Done with Animal Farm 2" << endl;
+
 }

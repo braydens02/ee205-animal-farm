@@ -18,3 +18,6 @@ extern void printCat(unsigned long index);
 extern void printAllCats();
 extern int findCat(const char name[]);
  */
+
+extern bool printAllCats() ;
+extern Cat* findCatbyName( const char* name ) ;
