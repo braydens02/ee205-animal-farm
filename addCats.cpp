@@ -8,11 +8,11 @@
 /// @author Brayden Suzuki <braydens@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#include <iostream>
 #include <cassert>
 #include "addCats.h"
 using namespace std;
 
+// adds a new instance of cat
 bool addCat(Cat* newCat) {
     assert( newCat != nullptr ) ;
 

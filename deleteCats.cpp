@@ -12,6 +12,7 @@
 #include "catDatabase.h"
 #include <cassert>
 
+// deletes an instance of cat
 bool deleteCat(Cat* aCat) {
     assert( aCat != nullptr ) ;
 
@@ -42,6 +43,7 @@ bool deleteCat(Cat* aCat) {
     return false ;
 }
 
+// deletes all cats
 bool deleteAllCats() {
     while( catDatabaseHeadPointer != nullptr ) {
         deleteCat( catDatabaseHeadPointer ) ;

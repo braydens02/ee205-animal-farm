@@ -14,6 +14,7 @@
 #include <cassert>
 using namespace std;
 
+// prints all cats using print function defined in Cat.cpp
 bool printAllCats() {
     int numCats = 0 ;
 
@@ -27,6 +28,8 @@ bool printAllCats() {
     return true ;
 }
 
+// returns the instance of the cat matching the name provided
+// if the name isn't found, it'll return null
 Cat* findCatbyName( const char* name ) {
     for (Cat *iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
         if( strcmp( name, iCat -> getName() ) == 0 ) {
